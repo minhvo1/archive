@@ -1,5 +1,5 @@
 body {
-  background-color: black;
+  background-color: rgb(231, 227, 227);
   height: 100vh;
   margin: 0;
 }
@@ -7,4 +7,6 @@ body {
 #app {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  width: 100%;
+  height: 100vh;
 }
