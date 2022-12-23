@@ -1,14 +1,18 @@
 <template>
-  <main>
+  <main class="">
     
   </main>
 </template>
 
 <script>
 export default {
-  name: 'HelloWorld',
+  name: 'MainPage',
   props: {
     msg: String
   }
 }
 </script>
+
+<style>
+
+</style>
