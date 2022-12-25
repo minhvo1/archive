@@ -1,11 +1,12 @@
 <template>
-  <div class=" flex-auto bg-black">
+  <div class="display flex-auto">
     <GenCanvas/>
+
   </div>
 </template>
 
 <script>
-import GenCanvas from './GenCanvas.vue'
+import GenCanvas from './GenCanvas.vue';
 
 export default {
   name: 'InfoDisplay',
@@ -14,3 +15,7 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+  @import '../styles/infoDisplay.scss';
+</style>

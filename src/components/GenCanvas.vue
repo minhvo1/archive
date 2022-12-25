@@ -14,6 +14,7 @@ const sketch = function(p) {
 
   let noise_size = 0.003;
   let noise_radius = 0.1;
+  let flow_angle
 
   let flow_width = (width + offset * 2) / flow_cell_size;
   let flow_height = (height + offset * 2) / flow_cell_size;
@@ -28,14 +29,28 @@ const sketch = function(p) {
 
   p.setup = function() {
     p.createCanvas(width, height);
-    p.frameRate(30)
-    p.background(Math.abs(255 - strokeColor[0]) * 0.25, Math.abs(255 - strokeColor[1])* 0.25, Math.abs(255 - strokeColor[2])* 0.25)
+    p.frameRate(120);
+    p.background(Math.abs(255 - strokeColor[0]) * 0.2, Math.abs(255 - strokeColor[1])* 0.2, Math.abs(255 - strokeColor[2])* 0.2)
     p.smooth();
     p.noStroke();
     //p.blendMode(p.OVERLAY);
-
+    
     init_particles();
     init_flow();
+    setTimeout(() => {
+      p.noLoop()
+    }, 8000)
+
+    let resetButton = p.createButton('REGENERATE')
+    resetButton.mousePressed(() => {
+      location.reload()
+    })
+
+    let saveButton = p.createButton('SAVE');
+    saveButton.position(598,0, 'relative')
+    saveButton.mousePressed(() => {
+      p.saveCanvas()
+    })
   };
   p.draw = function() {
     p.translate(-offset, -offset);
@@ -116,7 +131,7 @@ const sketch = function(p) {
       }
     }
 
-    let flow_angle = p.createVector(low_pos.x - high_pos.x, low_pos.y - high_pos.y);
+    flow_angle = p.createVector(low_pos.x - high_pos.x, low_pos.y - high_pos.y);
     flow_angle.normalize().mult(high_val - low_val);
 
     return flow_angle;
@@ -156,12 +171,6 @@ const sketch = function(p) {
   //   }
   // }
 
-  p.keyPressed = function() {
-    if (p.keyCode === 80) {
-      p.saveCanvas('landslide', 'jpeg');
-    }
-  };
-
   function mod(x, n) {
     return (x % n + n) % n;
   }
@@ -171,7 +180,10 @@ export default {
   name: 'GenCanvas',
   mounted() {
     new p5(sketch, 'canvas');
-
   }
 }
 </script>
+
+<style lang="scss">
+  @import '../styles/genCanvas.scss';
+</style>
