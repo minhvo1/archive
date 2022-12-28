@@ -30,16 +30,15 @@ const sketch = function(p) {
   p.setup = function() {
     p.createCanvas(width, height);
     p.frameRate(120);
-    p.background(Math.abs(255 - strokeColor[0]) * 0.2, Math.abs(255 - strokeColor[1])* 0.2, Math.abs(255 - strokeColor[2])* 0.2)
+    p.pixelDensity(2);
+    p.background(Math.abs(255 - strokeColor[0]) * 0.18, Math.abs(255 - strokeColor[1])* 0.18, Math.abs(255 - strokeColor[2])* 0.18)
     p.smooth();
     p.noStroke();
+
     //p.blendMode(p.OVERLAY);
-    
+  
     init_particles();
     init_flow();
-    setTimeout(() => {
-      p.noLoop()
-    }, 8000)
 
     let resetButton = p.createButton('REGENERATE')
     resetButton.mousePressed(() => {
@@ -51,6 +50,10 @@ const sketch = function(p) {
     saveButton.mousePressed(() => {
       p.saveCanvas()
     })
+
+    setTimeout(() => {
+      p.noLoop()
+    }, 10000)
   };
   p.draw = function() {
     p.translate(-offset, -offset);
@@ -91,8 +94,8 @@ const sketch = function(p) {
         .normalize()
         .mult(2.2);
 
-      //prt.acc = p5.Vector.fromAngle(p.noise(prt.seed * 10, tick) * p.TAU).mult(0.01);
-      prt.acc = p.createVector(0, 0);
+      prt.acc = p5.Vector.fromAngle(p.noise(prt.seed * 10, tick) * p.TAU).mult(p.random(0.0005, 0.05));
+      // prt.acc = p.createVector(0, 0);
       prt.acc.add(flow).mult(3);
     }
   }
@@ -115,7 +118,7 @@ const sketch = function(p) {
     let low_pos = p.createVector(0, 0);
 
     for (var i = 0; i < 100; i++) {
-      let angle = i / p.random(500) * p.TAU;
+      let angle = i / p.random(1,1000) * p.TAU;
       let pos = p.createVector(x + p.cos(angle) * r, y + p.sin(angle) * r);
       let val = p.noise(pos.x, pos.y);
 
@@ -144,8 +147,8 @@ const sketch = function(p) {
   }
 
   function display_particles() {
-    p.strokeWeight(p.random(2,4));
     p.stroke(strokeColor[0], strokeColor[1], strokeColor[2], 5);
+    p.strokeWeight(p.random(1,4));
     for (let i = 0; i < particles.length; i++) {
       // p.stroke(particles[i].col);
       //p.point(particles[i].pos.x, particles[i].pos.y);
