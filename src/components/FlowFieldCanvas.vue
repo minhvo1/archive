@@ -180,7 +180,7 @@ const sketch = function(p) {
 };
 
 export default {
-  name: 'FlowField',
+  name: 'FlowFieldCanvas',
   mounted() {
     new p5(sketch, 'canvas');
   }

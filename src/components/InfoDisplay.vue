@@ -1,17 +1,18 @@
 <template>
   <div class="display flex-auto">
-    <GenCanvas/>
+    <WatercolorCanvas/>
 
   </div>
 </template>
 
 <script>
-import GenCanvas from './FlowField.vue';
+// import FlowFieldCanvas from './FlowFieldCanvas.vue';
+import WatercolorCanvas from './WatercolorCanvas.vue';
 
 export default {
   name: 'InfoDisplay',
   components: {
-    GenCanvas
+    WatercolorCanvas
   }
 }
 </script>
