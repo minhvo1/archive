@@ -1,24 +1,31 @@
 <script setup>
-// import { computed } from 'vue'
+import { computed } from 'vue'
 import FlowFieldCanvas from './FlowFieldCanvas.vue';
-// import WatercolorCanvas from './WatercolorCanvas.vue';
-// import Home from './Home.vue';
+import WatercolorCanvas from './WatercolorCanvas.vue';
+import Home from './HomePage.vue';
+import { ref } from 'vue'
 
-// const routes = {
-//   '/': Home,
-//   '/flowfield': FlowFieldCanvas,
-//   '/watercolor': WatercolorCanvas
-// }
+const currentPath = ref(window.location.hash)
 
-// const currentView = computed(() => {
-//   return routes[currentPath.value.slice(1) || '/']
-// })
+window.addEventListener('hashchange', () => {
+  currentPath.value = window.location.hash
+})
+
+const routes = {
+  '/': Home,
+  '/flowfield': FlowFieldCanvas,
+  '/watercolor': WatercolorCanvas
+}
+
+const currentView = computed(() => {
+  return routes[currentPath.value.slice(1) || '/']
+})
+
 </script>
 
 <template>
   <div class="display flex-auto">
-    <FlowFieldCanvas/>
-
+    <component :is="currentView" />
   </div>
 </template>
 
