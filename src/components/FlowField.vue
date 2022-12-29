@@ -31,7 +31,7 @@ const sketch = function(p) {
     p.createCanvas(width, height);
     p.frameRate(120);
     p.pixelDensity(2);
-    p.background(Math.abs(255 - strokeColor[0]) * 0.18, Math.abs(255 - strokeColor[1])* 0.18, Math.abs(255 - strokeColor[2])* 0.18)
+    p.background(Math.abs(255 - strokeColor[0]) * 0.15, Math.abs(255 - strokeColor[1])* 0.15, Math.abs(255 - strokeColor[2])* 0.15)
     p.smooth();
     p.noStroke();
 
@@ -180,7 +180,7 @@ const sketch = function(p) {
 };
 
 export default {
-  name: 'GenCanvas',
+  name: 'FlowField',
   mounted() {
     new p5(sketch, 'canvas');
   }
@@ -188,5 +188,5 @@ export default {
 </script>
 
 <style lang="scss">
-  @import '../styles/genCanvas.scss';
+  @import '../styles/flowField.scss';
 </style>

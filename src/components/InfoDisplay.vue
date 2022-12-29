@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import GenCanvas from './GenCanvas.vue';
+import GenCanvas from './FlowField.vue';
 
 export default {
   name: 'InfoDisplay',
