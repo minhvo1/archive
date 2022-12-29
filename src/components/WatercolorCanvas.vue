@@ -14,10 +14,7 @@ const sketch = function(p) {
   let shapes_per_layer = 45;
 
   let points;
-  // let current;
-
-  let filename = 'landslide';
-
+  
   let use_custom_color_seed = false;
   let custom_color_seed = 94938984;
 
@@ -37,6 +34,17 @@ const sketch = function(p) {
     p.blendMode(p.MULTIPLY);
     p.noStroke();
     p.noLoop();
+
+    let resetButton = p.createButton('REGENERATE')
+    resetButton.mousePressed(() => {
+      location.reload()
+    })
+
+    let saveButton = p.createButton('SAVE');
+    saveButton.position(598,0, 'relative')
+    saveButton.mousePressed(() => {
+      p.saveCanvas()
+    })
   };
 
   p.draw = function() {
@@ -136,20 +144,6 @@ const sketch = function(p) {
     return narr;
   };
 
-  let saveToFile = function() {
-    p.saveCanvas(filename + '_c' + COLOR_SEED + '_s' + SHAPE_SEED, 'jpeg');
-  };
-
-
-  p.keyPressed = function() {
-    if (p.keyCode === 83) {
-      // S key
-      saveToFile();
-    } else if (p.keyCode === 65) {
-      // A key
-      p.draw();
-    }
-  };
 };
 
 export default {
