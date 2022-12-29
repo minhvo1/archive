@@ -1,9 +1,6 @@
-<template>
-  <div id="canvas"></div>
-</template>
-
-<script>
+<script setup>
 import p5 from "p5"
+import { onMounted } from 'vue'
 
 const sketch = function(p) {
   let initial_size = 5;
@@ -146,13 +143,15 @@ const sketch = function(p) {
 
 };
 
-export default {
-  name: 'WatercolorCanvas',
-  mounted() {
-    new p5(sketch, 'canvas');
-  }
-}
+onMounted(() => {
+  new p5(sketch, 'canvas');
+})
+
 </script>
+
+<template>
+  <div id="canvas"></div>
+</template>
 
 <style lang="scss">
   @import '../styles/watercolor.scss';

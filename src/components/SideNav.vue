@@ -1,3 +1,6 @@
+<script setup>
+</script>
+
 <template>
   <div class="side-nav flex-auto w-full max-w-xl pl-3">
     <div class="header text-8xl font-bold mb-9">
@@ -6,18 +9,15 @@
 
     <div class="menu text-7xl mt-16">
       <div class="menu-item flow-field">
-        <p>FLOW FIELD</p>
+        <a href="#/flowfield">FLOW FIELD</a>
+      </div>
+      <div class="menu-item watercolor">
+        <a href="#/watercolor">WATERCOLOR</a>
       </div>
       
     </div>
   </div>
 </template>
-
-<script>
-export default {
-  name: 'SideNav',
-}
-</script>
 
 <style lang="scss">
   @import '../styles/sideNav.scss';

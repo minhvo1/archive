@@ -1,9 +1,6 @@
-<template>
-  <div id="canvas"></div>
-</template>
-
-<script>
+<script setup>
 import p5 from "p5"
+import { onMounted } from 'vue'
 
 const sketch = function(p) {
   let width = 900;
@@ -178,14 +175,15 @@ const sketch = function(p) {
     return (x % n + n) % n;
   }
 };
-
-export default {
-  name: 'FlowFieldCanvas',
-  mounted() {
-    new p5(sketch, 'canvas');
-  }
-}
+onMounted(() => {
+  new p5(sketch, 'canvas');
+})
 </script>
+
+<template>
+  <div id="canvas"></div>
+</template>
+
 
 <style lang="scss">
   @import '../styles/flowField.scss';
