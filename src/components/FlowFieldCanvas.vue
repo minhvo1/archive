@@ -5,13 +5,17 @@ import { onMounted, onUnmounted } from 'vue'
 const sketch = function(p) {
   let width = 800;
   let height = 800;
+  if (window.innerWidth <= 1800) {
+    width = 700;
+    height = 700;
+  }
+
   let offset = 100;
 
   let flow_cell_size = p.random(8, 50);
 
   let noise_size = p.random(0.001, 0.02);
   let noise_radius = p.random(0.05, 0.5);
-  console.log(noise_size,noise_radius)
 
   let flow_angle
 
@@ -24,7 +28,7 @@ const sketch = function(p) {
 
   let tick = 0;
 
-  let strokeColor = [p.random(255),p.random(255),p.random(255)]
+  let strokeColor = [p.random(50, 255),p.random(50, 255),p.random(50, 255)]
 
   p.setup = function() {
     p.createCanvas(width, height);
@@ -62,7 +66,6 @@ const sketch = function(p) {
   };
   p.draw = function() {
     p.translate(-offset, -offset);
-    //display_flow();
     update_particles();
     display_particles();
     tick = tick + 0.002;
@@ -155,29 +158,10 @@ const sketch = function(p) {
     p.stroke(strokeColor[0], strokeColor[1], strokeColor[2], 5);
     p.strokeWeight(p.random(1,4));
     for (let i = 0; i < particles.length; i++) {
-      // p.stroke(particles[i].col);
-      //p.point(particles[i].pos.x, particles[i].pos.y);
       if (p5.Vector.dist(particles[i].prev, particles[i].pos) < 10)
         p.line(particles[i].prev.x, particles[i].prev.y, particles[i].pos.x, particles[i].pos.y);
     }
   }
-
-  // function display_flow() {
-  //   for (let i = 0; i < flow_grid.length; i++) {
-  //     for (let j = 0; j < flow_grid[i].length; j++) {
-  //       p.strokeWeight(1);
-  //       p.stroke(255, 0, 0);
-  //       p.noFill();
-  //       p.ellipse(j * flow_cell_size, i * flow_cell_size, 7, 7);
-  //       p.line(
-  //         j * flow_cell_size,
-  //         i * flow_cell_size,
-  //         j * flow_cell_size + flow_grid[i][j].x * 50,
-  //         i * flow_cell_size + flow_grid[i][j].y * 50
-  //       );
-  //     }
-  //   }
-  // }
 
   function mod(x, n) {
     return (x % n + n) % n;

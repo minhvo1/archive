@@ -3,6 +3,13 @@ import p5 from "p5"
 import { onMounted, onUnmounted } from 'vue'
 
 const sketch = function(p) {
+  let width = 800;
+  let height = 800;
+  if (window.innerWidth <= 1800) {
+    width = 700;
+    height = 700;
+  }
+
   let initial_size = p.random(3, 7)
   let initial_deviation = p.random(70, 1000);
   let deviation = p.random(50, 150);
@@ -20,7 +27,7 @@ const sketch = function(p) {
   let SHAPE_SEED;
 
   p.setup = function() {
-    p.createCanvas(800, 800);
+    p.createCanvas(width, height);
     p.pixelDensity(2);
     p.colorMode(p.HSB);
     p.blendMode(p.MULTIPLY);
