@@ -32,9 +32,6 @@ const sketch = function(p) {
     p.pixelDensity(2);
     p.background(Math.abs(255 - strokeColor[0]) * 0.1, Math.abs(255 - strokeColor[1])* 0.1, Math.abs(255 - strokeColor[2])* 0.1)
     p.smooth();
-    p.noStroke();
-
-    //p.blendMode(p.OVERLAY);
   
     init_particles();
     init_flow();
@@ -206,8 +203,3 @@ onUnmounted(() => {
 <template>
   <div id="canvas"></div>
 </template>
-
-
-<style lang="scss">
-  @import '../styles/flowField.scss';
-</style>

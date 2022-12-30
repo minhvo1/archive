@@ -173,7 +173,3 @@ onUnmounted(() => {
 <template>
   <div id="canvas"></div>
 </template>
-
-<style lang="scss">
-  @import '../styles/watercolor.scss';
-</style>
