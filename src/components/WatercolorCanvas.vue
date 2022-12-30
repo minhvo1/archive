@@ -3,22 +3,16 @@ import p5 from "p5"
 import { onMounted, onUnmounted } from 'vue'
 
 const sketch = function(p) {
-  let initial_size = 5;
-  let initial_deviation = 350;
-  let deviation = 100;
-  let number_of_interpolations = 8;
-  let number_of_layers = 6;
-  let shapes_per_layer = 45;
+  let initial_size = p.random(3, 7)
+  let initial_deviation = p.random(70, 1000);
+  let deviation = p.random(50, 150);
+
+  let number_of_interpolations = p.random(4, 9)
+  let number_of_layers = p.random(4, 10);
+  let shapes_per_layer = p.random(30, 100);
 
   let points;
   
-  let use_custom_color_seed = false;
-  let custom_color_seed = 94938984;
-
-  let use_custom_shape_seed = false;
-  let custom_shape_seed = 94938984;
-
-  let use_saved_palette = false;
   let current_palette = [];
   let random_palette = [];
 
@@ -37,7 +31,7 @@ const sketch = function(p) {
       document.getElementById('button-wrapper').remove()
     }
 
-    const buttonWrapper = document.createElement('div');
+    const buttonWrapper = document.createElement('div')
     buttonWrapper.setAttribute('id', 'button-wrapper')
     document.getElementById('display-wrapper').appendChild(buttonWrapper)
 
@@ -63,13 +57,13 @@ const sketch = function(p) {
   };
 
   function set_seeds() {
-    COLOR_SEED = use_custom_color_seed ? custom_color_seed : p.floor(Math.random() * 100000000);
-    SHAPE_SEED = use_custom_shape_seed ? custom_shape_seed : p.floor(Math.random() * 100000000);
+    COLOR_SEED = p.floor(Math.random() * 100000000);
+    SHAPE_SEED = p.floor(Math.random() * 100000000);
   }
 
   function set_colors() {
     random_palette = [];
-    for (var i = 0; i < number_of_layers; i++) {
+    for (let i = 0; i < number_of_layers; i++) {
       random_palette.push(p.random(360));
     }
   }
@@ -77,13 +71,13 @@ const sketch = function(p) {
   function display() {
     p.clear();
     p.background('#fff');
-    for (var h = 0; h < number_of_layers; h++) {
+    for (let h = 0; h < number_of_layers; h++) {
       init(h * 250 - 100);
-      let hue = use_saved_palette ? current_palette[h] : random_palette[h];
+      let hue = random_palette[h];
       current_palette[h] = hue;
       p.fill(hue, 100, 95, 0.012);
-      for (var i = 0; i < shapes_per_layer; i++) {
-        let shape = get_variant();
+      for (let i = 0; i < shapes_per_layer; i++) {
+        let shape = get_letiant();
         display_shape(shape);
       }
     }
@@ -91,7 +85,7 @@ const sketch = function(p) {
 
   function init(ypos) {
     points = [];
-    for (var i = 0; i < initial_size; i++) {
+    for (let i = 0; i < initial_size; i++) {
       let vec = p.createVector(i / (initial_size - 1) * p.width, ypos, p.random(-1, 1));
       move_nearby(vec, initial_deviation);
       points.push(vec);
@@ -101,7 +95,7 @@ const sketch = function(p) {
     }
   }
 
-  function get_variant() {
+  function get_letiant() {
     let c = deep_copy(points);
     for (let b = 0; b < 8; b++) {
       c.forEach(function(pnt) {
@@ -126,7 +120,7 @@ const sketch = function(p) {
   }
 
   function interpolate(points, sd) {
-    for (var i = points.length - 1; i > 0; i--) {
+    for (let i = points.length - 1; i > 0; i--) {
       points.splice(i, 0, generate_midpoint(points[i - 1], points[i], sd));
     }
   }
@@ -144,7 +138,7 @@ const sketch = function(p) {
 
   let deep_copy = function(arr) {
     let narr = [];
-    for (var i = 0; i < arr.length; i++) {
+    for (let i = 0; i < arr.length; i++) {
       narr.push(arr[i].copy());
     }
     return narr;
