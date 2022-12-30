@@ -10,6 +10,7 @@ const sketch = function(p) {
     height = 700;
   }
 
+  let counter = 0;
   let offset = 100;
 
   let flow_cell_size = p.random(8, 50);
@@ -60,15 +61,16 @@ const sketch = function(p) {
       p.saveCanvas()
     })
 
-    setTimeout(() => {
-      p.noLoop()
-    }, 10000)
   };
   p.draw = function() {
     p.translate(-offset, -offset);
     update_particles();
     display_particles();
     tick = tick + 0.002;
+    counter++;
+    if (counter >= 250) {
+      p.noLoop()
+    }
   };
 
   function init_particles() {
