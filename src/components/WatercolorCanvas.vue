@@ -51,8 +51,7 @@ const sketch = function(p) {
     let saveButton = p.createButton('SAVE');
     saveButton.parent(buttonWrapper)
     saveButton.mousePressed(() => {
-      p.saveCanvas()
-    })
+      p.saveCanvas('wa_' + Math.floor(p.random(100000000, 999999999)))    })
   };
 
   p.draw = function() {
