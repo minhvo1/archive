@@ -7,7 +7,7 @@ const sketch = function(p) {
   let height = 800;
   let offset = 100;
 
-  let flow_cell_size = 10;
+  let flow_cell_size = p.random(8, 50);
 
   let noise_size = p.random(0.001, 0.02);
   let noise_radius = p.random(0.05, 0.5);
@@ -19,7 +19,7 @@ const sketch = function(p) {
   let flow_height = (height + offset * 2) / flow_cell_size;
   let flow_grid = [];
 
-  let number_of_particles = p.random(500, 10000);
+  let number_of_particles = p.random(500, 8000);
   let particles = [];
 
   let tick = 0;
