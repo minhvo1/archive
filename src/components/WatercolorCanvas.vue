@@ -28,7 +28,7 @@ const sketch = function(p) {
 
   p.setup = function() {
     p.createCanvas(width, height);
-    p.pixelDensity(2);
+    p.pixelDensity(1920 / width);
     p.colorMode(p.HSB);
     p.blendMode(p.MULTIPLY);
     p.noStroke();
