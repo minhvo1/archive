@@ -1,6 +1,6 @@
 <script setup>
 import p5 from "p5"
-import { onMounted } from 'vue'
+import { onMounted, onUnmounted } from 'vue'
 
 const sketch = function(p) {
   let initial_size = 5;
@@ -55,7 +55,6 @@ const sketch = function(p) {
   };
 
   p.draw = function() {
-
     set_seeds();
     p.randomSeed(COLOR_SEED);
     set_colors();
@@ -154,7 +153,19 @@ const sketch = function(p) {
 };
 
 onMounted(() => {
+  let parts = document.URL.split('/')
+  if (parts[parts.length - 1] === 'watercolor') {
+    document.getElementById('watercolor').classList.add('active');
+  }
   new p5(sketch, 'canvas');
+})
+
+onUnmounted(() => {
+  if (document.getElementsByClassName('active')) {
+    document.getElementsByClassName('active').forEach(element => {
+      element.classList.remove('active')
+    })
+  }
 })
 
 </script>

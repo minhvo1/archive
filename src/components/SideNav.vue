@@ -5,14 +5,7 @@ const currentPath = ref(window.location.hash)
 
 window.addEventListener('hashchange', () => {
   currentPath.value = window.location.hash
-  console.log(document.URL)
 })
-
-window.addEventListener('load', () => {
-
-  console.log(document.URL)
-})
-
 
 </script>
 
@@ -23,10 +16,10 @@ window.addEventListener('load', () => {
     </div>
 
     <div class="menu text-6xl mt-16">
-      <div class="menu-item flow-field">
+      <div id="flow-field" class="menu-item">
         <a href="#/flowfield">FLOW FIELD</a>
       </div>
-      <div class="menu-item watercolor">
+      <div id="watercolor" class="menu-item">
         <a href="#/watercolor">WATERCOLOR</a>
       </div>
       

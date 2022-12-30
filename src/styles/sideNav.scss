@@ -10,5 +10,20 @@
 
   .menu-item {
     padding: 3rem 1rem 3rem 1rem;
+
+    a {
+      transition: background-color 0.2s ease-in-out;
+    }
+    a:hover {
+      background-color: white;
+      color: black;
+    }
+  }
+
+  .active {
+    a {
+      background-color: white;
+      color: black;
+    }
   }
 }

@@ -1,6 +1,6 @@
 <script setup>
 import p5 from "p5"
-import { onMounted } from 'vue'
+import { onMounted, onUnmounted } from 'vue'
 
 const sketch = function(p) {
   let width = 800;
@@ -9,15 +9,17 @@ const sketch = function(p) {
 
   let flow_cell_size = 10;
 
-  let noise_size = 0.003;
-  let noise_radius = 0.1;
+  let noise_size = p.random(0.001, 0.02);
+  let noise_radius = p.random(0.05, 0.5);
+  console.log(noise_size,noise_radius)
+
   let flow_angle
 
   let flow_width = (width + offset * 2) / flow_cell_size;
   let flow_height = (height + offset * 2) / flow_cell_size;
   let flow_grid = [];
 
-  let number_of_particles = p.random(3000, 7000);
+  let number_of_particles = p.random(500, 10000);
   let particles = [];
 
   let tick = 0;
@@ -28,7 +30,7 @@ const sketch = function(p) {
     p.createCanvas(width, height);
     p.frameRate(120);
     p.pixelDensity(2);
-    p.background(Math.abs(255 - strokeColor[0]) * 0.15, Math.abs(255 - strokeColor[1])* 0.15, Math.abs(255 - strokeColor[2])* 0.15)
+    p.background(Math.abs(255 - strokeColor[0]) * 0.1, Math.abs(255 - strokeColor[1])* 0.1, Math.abs(255 - strokeColor[2])* 0.1)
     p.smooth();
     p.noStroke();
 
@@ -124,7 +126,7 @@ const sketch = function(p) {
     let low_pos = p.createVector(0, 0);
 
     for (var i = 0; i < 100; i++) {
-      let angle = i / p.random(1,1000) * p.TAU;
+      let angle = i / p.random(1,800) * p.TAU;
       let pos = p.createVector(x + p.cos(angle) * r, y + p.sin(angle) * r);
       let val = p.noise(pos.x, pos.y);
 
@@ -185,7 +187,19 @@ const sketch = function(p) {
   }
 };
 onMounted(() => {
+  let parts = document.URL.split('/')
+  if (parts[parts.length - 1] === 'flowfield') {
+    document.getElementById('flow-field').classList.add('active');
+  }
   new p5(sketch, 'canvas');
+})
+
+onUnmounted(() => {
+  if (document.getElementsByClassName('active')) {
+    document.getElementsByClassName('active').forEach(element => {
+      element.classList.remove('active')
+    })
+  }
 })
 </script>
 
