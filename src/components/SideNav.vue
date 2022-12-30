@@ -11,7 +11,7 @@ window.addEventListener('hashchange', () => {
 
 <template>
   <div class="side-nav flex-auto w-full max-w-xl pl-3 shadow-inner">
-    <div class="header text-8xl font-bold mb-9">
+    <div class="header mb-9">
       <a href="#/">ARCHIVE</a>
     </div>
 
