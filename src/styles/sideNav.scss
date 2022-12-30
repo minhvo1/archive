@@ -1,6 +1,7 @@
 .side-nav{
-  background-color: rgb(231, 227, 227);
+  background-color: transparent;
   font-family: Helvetica, sans-serif;
+  color: rgb(231, 227, 227);
 
   .header {
     padding: 0 1rem 0 1rem;
@@ -8,6 +9,6 @@
   }
 
   .menu-item {
-    padding: 2rem 1rem 2rem 1rem;
+    padding: 3rem 1rem 3rem 1rem;
   }
 }

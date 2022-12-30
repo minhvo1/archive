@@ -1,5 +1,7 @@
 <script setup>
-
+    if (document.getElementById('button-wrapper')) {
+      document.getElementById('button-wrapper').remove()
+    }
 </script>
 
 <template>

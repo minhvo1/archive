@@ -24,7 +24,7 @@ const currentView = computed(() => {
 </script>
 
 <template>
-  <div class="display flex-auto">
+  <div id="display-wrapper" class="display flex-auto">
     <component :is="currentView" />
   </div>
 </template>

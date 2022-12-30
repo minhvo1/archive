@@ -3,8 +3,8 @@ import p5 from "p5"
 import { onMounted } from 'vue'
 
 const sketch = function(p) {
-  let width = 900;
-  let height = 900;
+  let width = 800;
+  let height = 800;
   let offset = 100;
 
   let flow_cell_size = 10;
@@ -37,13 +37,22 @@ const sketch = function(p) {
     init_particles();
     init_flow();
 
+    if (document.getElementById('button-wrapper')) {
+      document.getElementById('button-wrapper').remove()
+    }
+
+    const buttonWrapper = document.createElement('div');
+    buttonWrapper.setAttribute('id', 'button-wrapper')
+    document.getElementById('display-wrapper').appendChild(buttonWrapper)
+
     let resetButton = p.createButton('REGENERATE')
+    resetButton.parent(buttonWrapper)
     resetButton.mousePressed(() => {
       location.reload()
     })
 
     let saveButton = p.createButton('SAVE');
-    saveButton.position(598,0, 'relative')
+    saveButton.parent(buttonWrapper)
     saveButton.mousePressed(() => {
       p.saveCanvas()
     })

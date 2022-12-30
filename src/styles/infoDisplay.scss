@@ -1,9 +1,20 @@
 .display {
-  .button-group {
+  #canvas {
+    margin-left: 5rem;
+  }
+
+  #button-wrapper {
+    margin: 0.5rem 0 0 5rem;
+    width: 800px;
+    display: flex;
+    justify-content: space-between;
 
     button {
       color: rgb(231, 227, 227);
-      font-family: Arial, Helvetica, sans-serif;
+      font-family: Helvetica, sans-serif;
+      font-size: 2rem;
     }
   }
+
+  
 }

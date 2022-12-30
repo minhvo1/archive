@@ -1,13 +1,28 @@
 <script setup>
+import { ref } from 'vue'
+
+const currentPath = ref(window.location.hash)
+
+window.addEventListener('hashchange', () => {
+  currentPath.value = window.location.hash
+  console.log(document.URL)
+})
+
+window.addEventListener('load', () => {
+
+  console.log(document.URL)
+})
+
+
 </script>
 
 <template>
-  <div class="side-nav flex-auto w-full max-w-xl pl-3">
+  <div class="side-nav flex-auto w-full max-w-xl pl-3 shadow-inner">
     <div class="header text-8xl font-bold mb-9">
       <a href="#/">ARCHIVE</a>
     </div>
 
-    <div class="menu text-7xl mt-16">
+    <div class="menu text-6xl mt-16">
       <div class="menu-item flow-field">
         <a href="#/flowfield">FLOW FIELD</a>
       </div>

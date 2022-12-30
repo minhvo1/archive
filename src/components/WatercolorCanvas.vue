@@ -26,19 +26,29 @@ const sketch = function(p) {
   let SHAPE_SEED;
 
   p.setup = function() {
-    p.createCanvas(900, 900);
+    p.createCanvas(800, 800);
+    p.pixelDensity(2);
     p.colorMode(p.HSB);
     p.blendMode(p.MULTIPLY);
     p.noStroke();
     p.noLoop();
 
+    if (document.getElementById('button-wrapper')) {
+      document.getElementById('button-wrapper').remove()
+    }
+
+    const buttonWrapper = document.createElement('div');
+    buttonWrapper.setAttribute('id', 'button-wrapper')
+    document.getElementById('display-wrapper').appendChild(buttonWrapper)
+
     let resetButton = p.createButton('REGENERATE')
+    resetButton.parent(buttonWrapper)
     resetButton.mousePressed(() => {
       location.reload()
     })
 
     let saveButton = p.createButton('SAVE');
-    saveButton.position(598,0, 'relative')
+    saveButton.parent(buttonWrapper)
     saveButton.mousePressed(() => {
       p.saveCanvas()
     })
