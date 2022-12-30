@@ -1,7 +1,7 @@
 <script setup>
-    if (document.getElementById('button-wrapper')) {
-      document.getElementById('button-wrapper').remove()
-    }
+  if (document.getElementById('button-wrapper')) {
+    document.getElementById('button-wrapper').style.display = 'none'
+  }
 </script>
 
 <template>
