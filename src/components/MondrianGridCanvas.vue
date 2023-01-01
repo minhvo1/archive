@@ -150,8 +150,8 @@ for (let i = 0; i < size; i += step) {
 };
 onMounted(() => {
   let parts = document.URL.split('/')
-  if (parts[parts.length - 1] === 'flowfield') {
-    document.getElementById('flow-field').classList.add('active');
+  if (parts[parts.length - 1] === 'mondrian') {
+    document.getElementById('mondrian').classList.add('active');
   }
   new p5(sketch, 'canvas');
 })

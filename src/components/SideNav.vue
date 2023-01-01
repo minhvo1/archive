@@ -25,6 +25,9 @@ window.addEventListener('hashchange', () => {
       <div id="mondrian" class="menu-item">
         <a href="#/mondrian">MONDRIAN GRID</a>
       </div>
+      <div id="map-trace" class="menu-item">
+        <a href="#/maptrace">MAP TRACE</a>
+      </div>
    
     </div>
   </div>

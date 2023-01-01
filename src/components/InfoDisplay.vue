@@ -2,7 +2,8 @@
 import { computed } from 'vue'
 import FlowFieldCanvas from './FlowFieldCanvas.vue';
 import WatercolorCanvas from './WatercolorCanvas.vue';
-import MondrianGridCanvas from './MondrianGridCanvas.vue'
+import MondrianGridCanvas from './MondrianGridCanvas.vue';
+import MapTraceCanvas from './MapTraceCanvas.vue';
 import Home from './HomePage.vue';
 import { ref } from 'vue'
 
@@ -16,7 +17,8 @@ const routes = {
   '/': Home,
   '/flowfield': FlowFieldCanvas,
   '/watercolor': WatercolorCanvas,
-  '/mondrian': MondrianGridCanvas
+  '/mondrian': MondrianGridCanvas,
+  '/maptrace': MapTraceCanvas
 }
 
 const currentView = computed(() => {
