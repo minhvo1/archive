@@ -13,7 +13,7 @@ const sketch = function(p) {
 
   let step = size / p.random(5, 40) ;
   let white = '#F2F5F1';
-  let colors = ['#D40920', '#1356A2', '#F7D842'];
+  let colors = ['#D40920', '#1356A2', '#F7D842', '#30303a'];
 
   let squares = [{
     x: 0,
@@ -62,8 +62,8 @@ const sketch = function(p) {
       squares[i].height
     );
 
-    if(p.random(1, 5) >= p.random(3, 4)) {
-      p.fill(colors[Math.floor(Math.random() * 3)])
+    if(p.random(1, 5) >= p.random(2.5, 3.4)) {
+      p.fill(colors[Math.floor(Math.random() * 4)])
     } else {
       p.fill(white)
     }
