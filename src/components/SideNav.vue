@@ -18,7 +18,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="side-nav flex-auto w-full pl-3 shadow-inner">
+  <div class="side-nav pl-3 shadow-inner">
     <div class="header mb-9">
       <a href="#/">ARCHIVE</a>
     </div>

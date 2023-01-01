@@ -21,7 +21,7 @@ const sketch = function(p) {
   let vertical_shift = 200;
   let horizontal_shift = 400;
 
-  let noise_size = p.random(0.01, 0.025);
+  let noise_size = p.random(0.005, 0.04);
   let noise_radius = 0.01;
 
   let flow_width = (width + offset * 2) / flow_cell_size;
