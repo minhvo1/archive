@@ -15,7 +15,7 @@ window.addEventListener('hashchange', () => {
       <a href="#/">ARCHIVE</a>
     </div>
 
-    <div class="menu text-6xl mt-16">
+    <div class="menu text-6xl mt-20">
       <div id="flow-field" class="menu-item">
         <a href="#/flowfield">FLOW FIELD</a>
       </div>

@@ -2,7 +2,6 @@
   background-color: transparent;
   font-family: Helvetica, sans-serif;
   color: rgb(231, 227, 227);
-  max-height: 700px;
 
   .header {
     padding: 0 1rem 0 1rem;
@@ -19,9 +18,9 @@
   }
 
   .menu {
-    max-height: 600px;
-    overflow-y: scroll;
-    
+    height: 600px;
+    overflow-y: hidden;
+
     .menu-item {
       padding: 3rem 1rem 3rem 1rem;
       
@@ -41,8 +40,25 @@
       }
     }
   }
+
+  .menu:hover {
+    overflow-y: scroll;
+  }
+
+  .menu :first-child {
+    padding-top: 0.5rem;
+  }
+
+  .menu :last-child {
+    padding-bottom: 0.5rem;
+  }
 }
 
+
 .menu::-webkit-scrollbar {
-  display: none;
+  width: 8px;
+}
+
+.menu::-webkit-scrollbar-thumb {
+  background-color: white;
 }
