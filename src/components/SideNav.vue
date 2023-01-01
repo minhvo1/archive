@@ -15,7 +15,7 @@ window.addEventListener('hashchange', () => {
       <a href="#/">ARCHIVE</a>
     </div>
 
-    <div class="menu text-6xl mt-20">
+    <div class="menu text-6xl mt-16">
       <div id="flow-field" class="menu-item">
         <a href="#/flowfield">FLOW FIELD</a>
       </div>
@@ -25,7 +25,7 @@ window.addEventListener('hashchange', () => {
       <div id="mondrian" class="menu-item">
         <a href="#/mondrian">MONDRIAN GRID</a>
       </div>
-      
+   
     </div>
   </div>
 </template>

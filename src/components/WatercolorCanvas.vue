@@ -42,6 +42,10 @@ const sketch = function(p) {
     buttonWrapper.setAttribute('id', 'button-wrapper')
     document.getElementById('display-wrapper').appendChild(buttonWrapper)
 
+    if (window.innerWidth <= 1800) {
+      document.getElementById('button-wrapper').style.width = '700px'
+    }
+
     let resetButton = p.createButton('REGENERATE')
     resetButton.parent(buttonWrapper)
     resetButton.mousePressed(() => {
