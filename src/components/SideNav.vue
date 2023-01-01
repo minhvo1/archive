@@ -28,6 +28,9 @@ window.addEventListener('hashchange', () => {
       <div id="map-trace" class="menu-item">
         <a href="#/maptrace">MAP TRACE</a>
       </div>
+      <div id="hedgehog" class="menu-item">
+        <a href="#/hedgehog">HEDGEHOG</a>
+      </div>
    
     </div>
   </div>
