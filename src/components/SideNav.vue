@@ -22,6 +22,9 @@ window.addEventListener('hashchange', () => {
       <div id="watercolor" class="menu-item">
         <a href="#/watercolor">WATERCOLOR</a>
       </div>
+      <div id="mondrian" class="menu-item">
+        <a href="#/mondrian">MONDRIAN GRID</a>
+      </div>
       
     </div>
   </div>

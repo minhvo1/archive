@@ -5,7 +5,7 @@
 </script>
 
 <template>
-  <div class="home text-right pr-7 pl-48 h-screen flex flex-col justify-start mt-4">
+  <div class="home text-right pr-7 pl-48 h-screen flex flex-col justify-start pt-4">
     <p class="home-text">A COLLECTION OF GENERATIVE ART SKETCHES AND ALGORITHMS.</p>
   </div>
 </template>
