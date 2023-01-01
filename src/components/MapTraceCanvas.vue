@@ -28,7 +28,6 @@ let sketch = function(p) {
     p.noFill();
     p.background('#e7e7db');
     p.frameRate(60)
-    // p.pixelDensity(2048 / width);
 
     p.stroke(20, 10);
     p.strokeWeight(0.7);

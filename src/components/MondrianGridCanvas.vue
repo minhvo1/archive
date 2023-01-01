@@ -14,7 +14,13 @@ const sketch = function(p) {
   let stepSize = p.random(5, 40);
   let step = size / stepSize
   let white = '#F2F5F1';
-  let colors = ['#D40920', '#1356A2', '#F7D842', '#30303a'];
+  let palette = {
+    one: ['#D40920', '#1356A2', '#F7D842', '#30303a'],
+    two:['#D40920', '#1356A2', '#F7D842'],
+    three: ['#D40920','#30303a'],
+    four:['#1356A2', '#F7D842']
+  }
+  let colorPalette = palette[Object.keys(palette)[Math.floor(Math.random() * Object.keys(palette).length)]]
 
   let squares = [{
     x: 0,
@@ -30,6 +36,7 @@ const sketch = function(p) {
 
     p.frameRate(120);
     p.pixelDensity(2048 / width);
+    
   
     if (document.getElementById('button-wrapper')) {
       document.getElementById('button-wrapper').remove()
@@ -52,7 +59,7 @@ const sketch = function(p) {
     let saveButton = p.createButton('SAVE');
     saveButton.parent(buttonWrapper)
     saveButton.mousePressed(() => {
-      p.saveCanvas('pg_' + Math.floor(p.random(100000000, 999999999)))
+      p.saveCanvas('mg_' + Math.floor(p.random(100000000, 999999999)))
     })
 
   };
@@ -67,8 +74,8 @@ const sketch = function(p) {
       squares[i].height
     );
 
-    if(p.random(1, 5) >= p.random(2.5, 3.4)) {
-      p.fill(colors[Math.floor(Math.random() * 4)])
+    if(p.random(1, 5) >= p.random(3, 3.5)) {
+      p.fill(colorPalette[Math.floor(Math.random() * colorPalette.length)])
     } else {
       p.fill(white)
     }
