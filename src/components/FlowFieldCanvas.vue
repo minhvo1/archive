@@ -34,7 +34,7 @@ const sketch = function(p) {
   p.setup = function() {
     p.createCanvas(width, height);
     p.frameRate(120);
-    p.pixelDensity(1920 / width);
+    p.pixelDensity(2048 / width);
     p.background(Math.abs(255 - strokeColor[0]) * 0.1, Math.abs(255 - strokeColor[1])* 0.1, Math.abs(255 - strokeColor[2])* 0.1)
     p.smooth();
   

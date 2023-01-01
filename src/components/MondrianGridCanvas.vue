@@ -28,7 +28,7 @@ const sketch = function(p) {
     p.strokeWeight(5)
 
     p.frameRate(120);
-    p.pixelDensity(1920 / width);
+    p.pixelDensity(2048 / width);
   
     if (document.getElementById('button-wrapper')) {
       document.getElementById('button-wrapper').remove()
@@ -139,7 +139,6 @@ for (let i = 0; i < size; i += step) {
   splitSquaresWith({ x: i });
 }
 
-  
 };
 onMounted(() => {
   let parts = document.URL.split('/')
