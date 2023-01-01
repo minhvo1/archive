@@ -37,6 +37,7 @@ const sketch = function(p) {
 
     p.stroke(255, 20);
     p.strokeWeight(1);
+    p.pixelDensity(2048 / width);
   
     if (document.getElementById('button-wrapper')) {
       document.getElementById('button-wrapper').remove()
