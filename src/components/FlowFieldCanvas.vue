@@ -176,7 +176,7 @@ const sketch = function(p) {
 onMounted(() => {
   let parts = document.URL.split('/')
   if (parts[parts.length - 1] === 'flowfield') {
-    document.getElementById('flow-field').classList.add('active');
+    document.getElementById('flowfield').classList.add('active');
   }
   new p5(sketch, 'canvas');
 })

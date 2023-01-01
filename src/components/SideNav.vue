@@ -1,10 +1,16 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 
 const currentPath = ref(window.location.hash)
 
 window.addEventListener('hashchange', () => {
   currentPath.value = window.location.hash
+})
+
+onMounted(() => {
+  let parts = document.URL.split('/')
+  let target = document.getElementById(parts[parts.length - 1])
+  target.scrollIntoView()
 })
 
 </script>
@@ -16,7 +22,7 @@ window.addEventListener('hashchange', () => {
     </div>
 
     <div class="menu text-6xl mt-16">
-      <div id="flow-field" class="menu-item">
+      <div id="flowfield" class="menu-item">
         <a href="#/flowfield">FLOW FIELD</a>
       </div>
       <div id="watercolor" class="menu-item">
@@ -25,7 +31,7 @@ window.addEventListener('hashchange', () => {
       <div id="mondrian" class="menu-item">
         <a href="#/mondrian">MONDRIAN GRID</a>
       </div>
-      <div id="map-trace" class="menu-item">
+      <div id="maptrace" class="menu-item">
         <a href="#/maptrace">MAP TRACE</a>
       </div>
       <div id="hedgehog" class="menu-item">

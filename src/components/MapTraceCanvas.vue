@@ -123,7 +123,7 @@ let sketch = function(p) {
 onMounted(() => {
   let parts = document.URL.split('/')
   if (parts[parts.length - 1] === 'maptrace') {
-    document.getElementById('map-trace').classList.add('active');
+    document.getElementById('maptrace').classList.add('active');
   }
   new p5(sketch, 'canvas');
 })

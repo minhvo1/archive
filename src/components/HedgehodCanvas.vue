@@ -12,7 +12,7 @@ const sketch = function(p) {
   let offset = -70;
   let circular_shape = false;
 
-  let flow_cell_size = 2;
+  let flow_cell_size = p.random(1.8, 3);
   let number_of_layers = 1;
 
   let vertical_partitions = 1;
@@ -21,7 +21,7 @@ const sketch = function(p) {
   let vertical_shift = 200;
   let horizontal_shift = 400;
 
-  let noise_size = 0.012;
+  let noise_size = p.random(0.01, 0.025);
   let noise_radius = 0.01;
 
   let flow_width = (width + offset * 2) / flow_cell_size;
