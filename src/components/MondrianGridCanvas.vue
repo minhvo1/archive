@@ -11,7 +11,8 @@ const sketch = function(p) {
   }
   let size = window.innerWidth;
 
-  let step = size / p.random(5, 40) ;
+  let stepSize = p.random(5, 40);
+  let step = size / stepSize
   let white = '#F2F5F1';
   let colors = ['#D40920', '#1356A2', '#F7D842', '#30303a'];
 
@@ -68,8 +69,11 @@ const sketch = function(p) {
       p.fill(white)
     }
 
-    p.strokeWeight(11)
-    p.endShape()
+    if (stepSize >= 25) {
+      p.strokeWeight(10)
+    } else {
+      p.strokeWeight(12)
+    }
   }
   p.noLoop()
   };
