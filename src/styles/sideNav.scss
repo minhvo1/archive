@@ -2,6 +2,7 @@
   background-color: transparent;
   font-family: Helvetica, sans-serif;
   color: rgb(231, 227, 227);
+  max-height: 700px;
 
   .header {
     padding: 0 1rem 0 1rem;
@@ -17,23 +18,31 @@
     }
   }
 
-
-  .menu-item {
-    padding: 3rem 1rem 3rem 1rem;
-
-    a {
-      transition: background-color 0.2s ease-in-out;
+  .menu {
+    max-height: 600px;
+    overflow-y: scroll;
+    
+    .menu-item {
+      padding: 3rem 1rem 3rem 1rem;
+      
+      a {
+        transition: background-color 0.2s ease-in-out;
+      }
+      a:hover {
+        background-color: white;
+        color: black;
+      }
     }
-    a:hover {
-      background-color: white;
-      color: black;
+    
+    .active {
+      a {
+        background-color: white;
+        color: black;
+      }
     }
   }
+}
 
-  .active {
-    a {
-      background-color: white;
-      color: black;
-    }
-  }
+.menu::-webkit-scrollbar {
+  display: none;
 }
