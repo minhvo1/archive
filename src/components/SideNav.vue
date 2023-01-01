@@ -10,13 +10,15 @@ window.addEventListener('hashchange', () => {
 onMounted(() => {
   let parts = document.URL.split('/')
   let target = document.getElementById(parts[parts.length - 1])
-  target.scrollIntoView()
+  if (target) {
+    target.scrollIntoView()
+  }
 })
 
 </script>
 
 <template>
-  <div class="side-nav flex-auto w-full max-w-xl pl-3 shadow-inner">
+  <div class="side-nav flex-auto w-full pl-3 shadow-inner">
     <div class="header mb-9">
       <a href="#/">ARCHIVE</a>
     </div>

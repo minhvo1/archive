@@ -2,12 +2,13 @@
   background-color: transparent;
   font-family: Helvetica, sans-serif;
   color: rgb(231, 227, 227);
+  max-width: 34rem;
 
   .header {
     padding: 0 1rem 0 1rem;
     margin-top: 0.5rem;
     font-size: 7rem;
-    
+
     a {
       transition: background-color 0.2s ease-in-out;
     }
@@ -20,12 +21,14 @@
   .menu {
     height: 600px;
     overflow-y: hidden;
+    margin-right: 10px;
 
     .menu-item {
       padding: 3rem 1rem 3rem 1rem;
       
       a {
         transition: background-color 0.2s ease-in-out;
+        line-height: 1.42;
       }
       a:hover {
         background-color: white;
@@ -61,4 +64,14 @@
 
 .menu::-webkit-scrollbar-thumb {
   background-color: white;
+}
+
+@media only screen and (max-width: 2000px) {
+  .menu {
+    height: 450px !important;
+
+    .menu-item {
+      padding: 2rem 1rem 2rem 1rem !important;
+    }
+  }
 }
