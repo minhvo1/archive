@@ -134,9 +134,9 @@ const sketch = function(p) {
 
     p.push();
     p.translate(x, y);
-    for (var i = 0; i < h; i++) {
+    for (let i = 0; i < h; i++) {
       p.push();
-      for (var j = 0; j < w; j++) {
+      for (let j = 0; j < w; j++) {
         if (i % 2 == 0) patch_set.display_patch(j % 2, cols, rot);
         else patch_set.display_patch(3 - j % 2, cols, rot);
         p.translate(1, 0);
@@ -244,33 +244,33 @@ const sketch = function(p) {
 
   // ---- PATCHES ----
 
-  var checkered = new Patch([new Shape(square, 0, 0, 0)], [new Shape(square, 0.5, 0.5, 0)]);
-  var half_n_half = new Patch([new Shape(half, 0, 0, 0)], [new Shape(half, 0, 0, 2)]);
-  var diagonal_stripes = new Patch(
+  let checkered = new Patch([new Shape(square, 0, 0, 0)], [new Shape(square, 0.5, 0.5, 0)]);
+  let half_n_half = new Patch([new Shape(half, 0, 0, 0)], [new Shape(half, 0, 0, 2)]);
+  let diagonal_stripes = new Patch(
     [new Shape(corner, 0, 0, 0), new Shape(corner, 0, 0, 2)],
     [new Shape(diagonal, 0, 0, 0)]
   );
-  var skewed = new Patch([new Shape(house, 0, 0, 0)], [new Shape(house, 0, 0, 2)]);
-  var wedge = new Patch([new Shape(triangle, 0, 0, 0)], [new Shape(arrow, 0, 0, 0)]);
-  var spruce = new Patch(
+  let skewed = new Patch([new Shape(house, 0, 0, 0)], [new Shape(house, 0, 0, 2)]);
+  let wedge = new Patch([new Shape(triangle, 0, 0, 0)], [new Shape(arrow, 0, 0, 0)]);
+  let spruce = new Patch(
     [new Shape(triangle, 0, 0, 0), new Shape(triangle, 0, 0.5, 0)],
     [new Shape(corner, 0, 0.5, 2), new Shape(corner, 0.5, 0, 3)]
   );
-  var corners = new Patch(
+  let corners = new Patch(
     [new Shape(quarter, 0, 0, 0), new Shape(quarter, 0, 0, 2)],
     [new Shape(quarter, 0, 0, 1), new Shape(quarter, 0, 0, 3)]
   );
-  var kings = new Patch(
+  let kings = new Patch(
     [new Shape(quarter, 0, 0, 0), new Shape(quarter, 0, 0.5, 3)],
     [new Shape(quarter, 0, 0, 3), new Shape(quarter, 0.5, 0, 0)]
   );
-  var kings_flipped = new Patch(
+  let kings_flipped = new Patch(
     [new Shape(quarter, 0, 0, 3), new Shape(quarter, 0.5, 0, 0)],
     [new Shape(quarter, 0, 0, 0), new Shape(quarter, 0, 0.5, 3)]
   );
-  var yoyo = new Patch([new Shape(semi, 0, 0, 0)], [new Shape(semi, 0, 0, 2)]);
-  var ell_and_square = new Patch([new Shape(small_square, 0, 0, 0)], [new Shape(ell, 0, 0, 2)]);
-  var trisquare = new Patch([new Shape(square, 0, 0, 0)], [new Shape(corner, 0, 0, 1), new Shape(corner, 0, 0, 3)]);
+  let yoyo = new Patch([new Shape(semi, 0, 0, 0)], [new Shape(semi, 0, 0, 2)]);
+  let ell_and_square = new Patch([new Shape(small_square, 0, 0, 0)], [new Shape(ell, 0, 0, 2)]);
+  let trisquare = new Patch([new Shape(square, 0, 0, 0)], [new Shape(corner, 0, 0, 1), new Shape(corner, 0, 0, 3)]);
 
   // ---- SHAPES ----
 
