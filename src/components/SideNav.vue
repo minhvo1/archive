@@ -39,6 +39,9 @@ onMounted(() => {
       <div id="hedgehog" class="menu-item">
         <a href="#/hedgehog">HEDGEHOG</a>
       </div>
+      <div id="patchwork" class="menu-item">
+        <a href="#/patchwork">PATCHWORK</a>
+      </div>
    
     </div>
   </div>
