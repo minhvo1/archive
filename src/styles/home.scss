@@ -5,4 +5,13 @@
   .home-text {
     line-height: 8rem;
   }
+  a {
+    display: block;
+    line-height: 0;
+    width: 3rem;
+    svg {
+      height: 3rem;
+      width: 3rem;
+    }
+  }
 }
