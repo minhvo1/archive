@@ -386,8 +386,8 @@ const sketch = function(p) {
 };
 onMounted(() => {
   let parts = document.URL.split('/')
-  if (parts[parts.length - 1] === 'mondrian') {
-    document.getElementById('mondrian').classList.add('active');
+  if (parts[parts.length - 1] === 'patchwork') {
+    document.getElementById('patchwork').classList.add('active');
   }
   new p5(sketch, 'canvas');
 })
