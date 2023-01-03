@@ -23,7 +23,7 @@ const sketch = function (p) {
   let cv = 0;
   let isBlossom;
 
-  if (p.random(0, 1) > 0.75) {
+  if (p.random(0, 1) > 0.6) {
     isBlossom = true;
   } else {
     isBlossom = false
