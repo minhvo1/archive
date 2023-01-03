@@ -33,7 +33,7 @@ const sketch = function (p) {
 
   p.setup = function () {
     p.createCanvas(width, height);
-    p.colorMode(p.RGB);
+    p.pixelDensity(2048 / width);    p.colorMode(p.RGB);
     tree = new Tree(400, 650, p.random(2.7, 3.1), [50 + p.random(cv * -1, cv), 40 + p.random(cv * -1, cv), 30 + p.random(cv * -1, cv)], isBlossom, blossomColor)
 
     if (document.getElementById('button-wrapper')) {
@@ -57,15 +57,14 @@ const sketch = function (p) {
     let saveButton = p.createButton('SAVE');
     saveButton.parent(buttonWrapper)
     saveButton.mousePressed(() => {
-      p.saveCanvas('ff_' + Math.floor(p.random(100000000, 999999999)))
+      p.saveCanvas('ft_' + Math.floor(p.random(100000000, 999999999)))
     })
   };
 
   p.draw = function () {
     p.background(220, 240, 210);
     tree.renderTree();
-
-
+    
     breeze += Math.abs(wind) * 0.05 + 0.1;
     if (breeze > 2 * p.PI) {
       breeze -= 2 * p.PI
