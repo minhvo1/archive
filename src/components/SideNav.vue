@@ -36,6 +36,9 @@ onMounted(() => {
       <div id="maptrace" class="menu-item">
         <a href="#/maptrace">MAP TRACE</a>
       </div>
+      <div id="fractal" class="menu-item">
+        <a href="#/fractal">FRACTAL TREE</a>
+      </div>
       <div id="hedgehog" class="menu-item">
         <a href="#/hedgehog">HEDGEHOG</a>
       </div>
