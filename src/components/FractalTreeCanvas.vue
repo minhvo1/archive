@@ -34,7 +34,7 @@ const sketch = function (p) {
   p.setup = function () {
     p.createCanvas(width, height);
     p.pixelDensity(2048 / width);    p.colorMode(p.RGB);
-    tree = new Tree(400, 650, p.random(2.7, 3.1), [50 + p.random(cv * -1, cv), 40 + p.random(cv * -1, cv), 30 + p.random(cv * -1, cv)], isBlossom, blossomColor)
+    tree = new Tree(width / 2, height / 1.25, p.random(2.7, 3.1), [50 + p.random(cv * -1, cv), 40 + p.random(cv * -1, cv), 30 + p.random(cv * -1, cv)], isBlossom, blossomColor)
 
     if (document.getElementById('button-wrapper')) {
       document.getElementById('button-wrapper').remove()
@@ -63,6 +63,7 @@ const sketch = function (p) {
 
   p.draw = function () {
     p.background(220, 240, 210);
+    p.frameRate(30)
     tree.renderTree();
     
     breeze += Math.abs(wind) * 0.05 + 0.1;
@@ -73,7 +74,7 @@ const sketch = function (p) {
     change += p.random(-1, 1);
     change = change * 0.9;
 
-    i += change / 100;
+    i += change / 200;
     i = i * 0.8;
     wind = i * 3;
   };
